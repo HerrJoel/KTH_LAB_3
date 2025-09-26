@@ -2,6 +2,7 @@ package jbl.shape;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+
 public class Line extends Shape {
 
     private double x2, y2;
@@ -48,6 +49,40 @@ public class Line extends Shape {
     }
 
 
+    @Override
+    protected void constrain(
+            double boxX, double boxY,
+            double boxWidth, double boxHeight) {
+        double lineDx = getDx();
+        double lineDy = getDy();
+
+
+        if (x2 < boxX) {
+            lineDx = Math.abs(lineDx);
+        } else if (x2 > boxWidth) {
+            lineDx = -Math.abs(lineDx);
+        }
+        if (y2 < boxY) {
+            lineDy = Math.abs(lineDy);
+        } else if (y2 > boxHeight) {
+            lineDy = -Math.abs(lineDy);
+        }
+
+        if (getX() < boxX) {
+            lineDx = Math.abs(lineDx);
+        } else if (getX() > boxWidth) {
+            lineDx = -Math.abs(lineDx);
+        }
+        if (getY() < boxY) {
+            lineDy = Math.abs(lineDy);
+        } else if (getY() > boxHeight) {
+            lineDy = -Math.abs(lineDy);
+        }
+
+        setVelocity(lineDx, lineDy);
+
+
+    }
 
 
     @Override
