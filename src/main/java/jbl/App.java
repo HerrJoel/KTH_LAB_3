@@ -64,7 +64,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         Group root = new Group();
-        Scene scene = new Scene(root, 300, 300, Color.WHITESMOKE);
+        Scene scene = new Scene(root, 400, 400, Color.WHITESMOKE);
 
         canvas = new Canvas();
         // automatically resize the canvas when the stage/scene is resized
