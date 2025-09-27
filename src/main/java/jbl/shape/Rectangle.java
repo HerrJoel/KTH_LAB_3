@@ -1,16 +1,18 @@
-/*
+
 package jbl.shape;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 
-public  class Rectangle  extends FillableShape{
+public  class Rectangle extends FillableShape{
     public double width;
     public double height;
 
 
-    public Rectangle() {}
+    public Rectangle() {
+        super();
+    }
 
     public double getHeight() {
         return height;
@@ -28,18 +30,45 @@ public  class Rectangle  extends FillableShape{
         this.height = height;
     }
 
-  public void paint(GraphicsContext gc){}
-
-    public void constrain(double Xmin, double Ymin, double Xmax, double Ymax) {
-        //behöver paint logicen för att förstå hur begränsningarna ser ut
-    }
-
+  public void paint(GraphicsContext gc){
+      if (isFilled()) {
+          gc.setFill(getColor());
+          gc.fillRect(getX(), getY(), width, height);
+      } else {
+          gc.setStroke(getColor());
+          gc.strokeRect(getX(), getY(), width, height);
+      }
+  }
     @Override
-    public String toString() {
-        return "Rectangle{" +
-                "width=" + width +
-                ", height=" + height +
-                '}';
+    public void constrain(double minX, double minY, double maxX, double maxY) {
+        double x = getX();
+        double y = getY();
+        double dx = getDx();
+        double dy = getDy();
+        if (x + width > maxX) {
+            x = maxX - width;
+            dx = -dx;
+            if (x < minX) {
+                x = minX;
+                dx = -dx;
+            }
+            // botten
+            if (y + height > maxY) {
+                y = maxY - height;
+                dy = -dy;
+            }
+            // toppen
+            if (y < minY) {
+                y = minY;
+                dy = -dy;
+            }
+        }
+
     }
+
+
+
+
+
+
 }
-*/

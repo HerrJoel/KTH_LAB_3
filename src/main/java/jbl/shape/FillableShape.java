@@ -1,7 +1,7 @@
 
 package jbl.shape;
 
-import javafx.scene.canvas.GraphicsContext;
+//import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 
@@ -11,6 +11,10 @@ public abstract class FillableShape extends Shape {
     public FillableShape(double x, double y, Color color, boolean filled) {
         super(x, y, color);
         this.filled = filled;
+    }
+
+    public FillableShape() {
+
     }
 
     public boolean isFilled(){

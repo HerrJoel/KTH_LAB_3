@@ -36,10 +36,40 @@ public class Circle extends FillableShape {
         }
     }
 
-    public void constrain(double Xmin, double Ymin, double Xmax, double Ymax){
-        //behöver paint logicen för att förstå hur begränsningarna ser ut
 
+
+    //javaFX anger position övre vänstra hörnet
+    @Override
+    protected void constrain(double minX, double minY, double maxX, double maxY) {
+        double x  = getX();
+        double y  = getY();
+        double dx = getDx();
+        double dy = getDy();
+
+        if (x < minX) {//vänster
+            x = minX;
+            dx = Math.abs(dx);
+        }
+
+        else if (x + diameter > maxX) {//höger
+            x = maxX - diameter;
+            dx = -Math.abs(dx);
+        }
+
+        if (y < minY) {//topp
+            y = minY;
+            dy = Math.abs(dy);
+        }
+        else if (y + diameter > maxY) {
+            y = maxY - diameter;   // Bottt
+            dy = -Math.abs(dy);
+        }
+
+        setX(x);
+        setY(y);
+        setVelocity(dx, dy);
     }
+
 
     @Override
     public String toString() {
