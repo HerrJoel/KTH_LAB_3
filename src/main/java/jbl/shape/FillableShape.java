@@ -1,14 +1,14 @@
 
 package jbl.shape;
 
-//import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 
 public abstract class FillableShape extends Shape {
    private boolean filled;
 
-    public FillableShape(double x, double y, Color color, boolean filled) {
+    protected FillableShape(double x, double y, Color color, boolean filled) {
         super(x, y, color);
         this.filled = filled;
     }

@@ -10,8 +10,11 @@ public  class Rectangle extends FillableShape{
     public double height;
 
 
-    public Rectangle() {
-        super();
+    public Rectangle(double x, double y, double width, double height, Color color, boolean filled) {
+        super(x, y, color, filled);
+        this.width=width;
+        this.height=height;
+        setColor(color);
     }
 
     public double getHeight() {
@@ -45,23 +48,32 @@ public  class Rectangle extends FillableShape{
         double y = getY();
         double dx = getDx();
         double dy = getDy();
+        // Höger
         if (x + width > maxX) {
             x = maxX - width;
             dx = -dx;
-            if (x < minX) {
-                x = minX;
-                dx = -dx;
-            }
-            // botten
-            if (y + height > maxY) {
-                y = maxY - height;
-                dy = -dy;
-            }
-            // toppen
-            if (y < minY) {
-                y = minY;
-                dy = -dy;
-            }
+        }
+        // Vänster
+        if (x < minX) {
+            x = minX;
+            dx = -dx;
+        }
+        // Bott
+        if (y + height > maxY) {
+            y = maxY - height;
+            dy = -dy;
+        }
+        // Topp
+        if (y < minY) {
+            y = minY;
+            dy = -dy;
+        }
+            setX(x);
+            setY(y);
+            setVelocity(dx, dy);
+
+
+
         }
 
     }
@@ -71,4 +83,4 @@ public  class Rectangle extends FillableShape{
 
 
 
-}
+
