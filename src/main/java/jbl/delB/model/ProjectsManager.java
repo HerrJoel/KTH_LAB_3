@@ -1,4 +1,4 @@
-package jbl.delB;
+package jbl.delB.model;
 
 public class ProjectsManager {
 }

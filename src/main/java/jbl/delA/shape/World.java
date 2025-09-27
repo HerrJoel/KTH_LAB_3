@@ -1,6 +1,6 @@
-package jbl.shape;
+package jbl.delA.shape;
 import javafx.scene.paint.Color;
-import jbl.shape.Shape;
+
 /**
  * A representation of a world containing a set of moving shapes. NB! The worlds
  * y-axis points downward.

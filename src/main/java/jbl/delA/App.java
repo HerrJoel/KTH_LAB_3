@@ -1,5 +1,5 @@
-package jbl;
-import jbl.shape.*;
+package jbl.delA;
+import jbl.delA.shape.*;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
