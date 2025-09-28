@@ -16,4 +16,5 @@ module jbl {
 
 
     opens jbl.delB.ui to javafx.fxml;
+    exports jbl.delB.io;
 }

@@ -17,9 +17,15 @@ public class ProjectsManager {
 
     }
 
+    public int getNextProjectId() {
+        return nextProjectId;
+    }
 
+    public List<Project> getProjects() {
+        return projects;
+    }
 
-public Project addProject(String title, String descr){
+    public Project addProject(String title, String descr){
 
         if(!isTitleUnique(title)){
             throw new TitleNotUniqueException("Titel '" + title + "' already exist.");
