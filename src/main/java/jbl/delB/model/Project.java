@@ -80,8 +80,8 @@ public class Project implements Comparable<Project>, Serializable {
         }
         LocalDate lastDate = createdDate;
         for(Task t : tasks){
-            if(t.getLastUpdated().isAfter(lastDate)){ //isAfter jämför 2 LocalDate, om task.getLastUpdated() (som finns i Task.java) är ett senare datum än lastDate --> return true.
-                lastDate = t.getLastUpdated();
+            if(t.getLastUpdate().isAfter(lastDate)){ //isAfter jämför 2 LocalDate, om task.getLastUpdated() (som finns i Task.java) är ett senare datum än lastDate --> return true.
+                lastDate = t.getLastUpdate();
             }
         }
 
@@ -133,10 +133,10 @@ public class Project implements Comparable<Project>, Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true; // jämför referenserna (namnen på objekten) om de pekar på samma minne. this representerar objektet som vi skickar anroppet med, o repreenterar det vi skickar med i anroppet) --> this.(o)
-        if(!(o instanceof Project)) return false;
+        if(!(o instanceof Project)) return false; // Om o inte är ett Project objekt --> return false
         Project oth = (Project) o; // garanterar att o är ett Project objekt och kopierar över det till other
 
-        return this.title.equals(oth.title); // jämför titlarna, om like--> return true
+        return this.title.equals(oth.title); // jämför titlarna, om lika--> return true
 
     }
 

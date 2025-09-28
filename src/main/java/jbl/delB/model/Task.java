@@ -25,6 +25,30 @@ public class Task implements Comparable<Task>, Serializable {
         this.state=TaskState.TO_DO;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getTakenBy() {
+        return takenBy;
+    }
+
+    public TaskState getState() {
+        return state;
+    }
+
+    public LocalDate getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public TaskPrio getPrio() {
+        return prio;
+    }
+
     public void setTakenBy(String takenBy) {
         if (this.takenBy != null) {
             throw new IllegalStateException("Task has been taken by: " + this.takenBy);
