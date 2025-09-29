@@ -123,6 +123,7 @@ public class Project implements Comparable<Project>, Serializable {
 
 // KRÄVS AV Comparable<Project>
     // Sorterar enligt titel alfabetisk ordning
+    //
     @Override
     public int compareTo(Project other) {
         return this.title.compareTo(other.title); // jämför titlarna, om lika --> return 0, om this.title kommer för alfabetiskt --> return < 0, annars return > 0
@@ -130,9 +131,10 @@ public class Project implements Comparable<Project>, Serializable {
 
 
     // Är titlarna lika?
+    //Används i projectManager isTitleUnique
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true; // jämför referenserna (namnen på objekten) om de pekar på samma minne. this representerar objektet som vi skickar anroppet med, o repreenterar det vi skickar med i anroppet) --> this.(o)
+        if (this == o) return true; // Jämför referenserna (namnen på objekten) om de pekar på samma minne. this representerar objektet som vi skickar anroppet med, o repreenterar det vi skickar med i anroppet) --> this.(o)
         if(!(o instanceof Project)) return false; // Om o inte är ett Project objekt --> return false
         Project oth = (Project) o; // garanterar att o är ett Project objekt och kopierar över det till other
 

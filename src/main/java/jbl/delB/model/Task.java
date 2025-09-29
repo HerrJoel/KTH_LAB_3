@@ -8,12 +8,12 @@ import java.time.LocalDate;
 
 public class Task implements Comparable<Task>, Serializable {
 
-    public String description;
-    public int id;
-    public String takenBy;
-    public TaskState state;
-    public LocalDate lastUpdate;
-    public TaskPrio prio;
+    private String description;
+    private int id;
+    private String takenBy;
+    private TaskState state;
+    private LocalDate lastUpdate;
+    private TaskPrio prio;
 
 
     Task(String descr, TaskPrio prio, int id){

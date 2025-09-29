@@ -1,8 +1,16 @@
 package jbl.delB.enums;
 
 public enum TaskState {
-    TO_DO,
-    IN_PROGRESS,
-    DONE
+    TO_DO("To do"), IN_PROGRESS("In progress"), DONE("Done");
 
+    private final String str;
+
+    private TaskState(String str) {
+        this.str = str;
+    }
+
+    @Override
+    public String toString() {
+        return str;
+    }
 }

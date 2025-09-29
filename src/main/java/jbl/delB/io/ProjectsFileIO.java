@@ -5,11 +5,16 @@ import jbl.delB.model.Project;
 import java.io.*;
 import java.util.List;
 
+
+
 /**
  * Hints on how to implement serialization and deserialization
  * of lists of projects and users.
  */
 public class ProjectsFileIO {
+
+    // Privat konstruktor för att förhindra instansiering
+    private ProjectsFileIO() {}
 
     /**
      * Call this method before the application exits, to store the users and projects,
@@ -47,11 +52,10 @@ public class ProjectsFileIO {
 
         } finally {
             if (ois != null) {
-                ois.close(); // viktigt: stäng alltid strömmen
+                ois.close(); // stäng strömmen
             }
         }
     }
 
-    // Privat konstruktor för att förhindra instansiering
-    private ProjectsFileIO() {}
+
 }

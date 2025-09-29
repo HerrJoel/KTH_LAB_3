@@ -1,5 +1,16 @@
 package jbl.delB.enums;
 
 public enum ProjectState {
-    EMPTY, ONGOING, COMPLETED
+    EMPTY("Empty"), ONGOING("Ongoing"), COMPLETED("Completed");
+
+    private final String str;
+
+    private ProjectState(String str) {
+        this.str = str;
+    }
+
+    @Override
+    public String toString() {
+        return str;
+    }
 }

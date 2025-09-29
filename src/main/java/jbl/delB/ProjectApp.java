@@ -10,7 +10,8 @@ import java.util.List;
 
 public class ProjectApp {
 
-    private static final String FILE_NAME = "projects.ser";
+// Sparar i mapp utanför src
+    private static final String FILE_NAME = "savedProjects/projects.ser";
 
     public void run() throws Exception { // we do not catch all exceptions
 

@@ -1,5 +1,6 @@
 package jbl.delB.ui;
 
+import jbl.delB.exceptions.TitleNotUniqueException;
 import jbl.delB.model.Project;
 import jbl.delB.model.ProjectsManager;
 
@@ -71,7 +72,7 @@ public class MainUI {
             String description = scan.nextLine();
             Project newProject = manager.addProject(title, description);
             System.out.println("Project created: " + newProject);
-        } catch (IllegalArgumentException e) {
+        } catch (TitleNotUniqueException e) {
             System.out.println("A project with that title already exists.");
         }
     }
