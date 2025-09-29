@@ -83,6 +83,20 @@ public class Task implements Comparable<Task>, Serializable {
         }
     }
 
+    @Override
+    public boolean equals(Object object) {
+        if (this == object){   // samma objekt i minnet
+            return true;
+        }
+        if (!(object instanceof Task other)){// inte  en Task
+            return false;
+        }
+
+
+        return this.prio == other.prio &&
+                this.description.equals(other.description);
+    }
+
 
     @Override
     public String toString() {
