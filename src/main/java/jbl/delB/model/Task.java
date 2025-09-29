@@ -69,9 +69,20 @@ public class Task implements Comparable<Task>, Serializable {
 
 
     @Override
-    public int compareTo(Task o) {
-        return 0;
+    public int compareTo(Task other) {
+        int prioCompare = this.prio.compareTo(other.prio);
+        if (prioCompare < 0) {
+            // this mindre än other
+            return -1;
+        } else if (prioCompare > 0) {
+            // this större än other
+            return 1;
+        } else {
+            // lika prio
+            return this.description.compareTo(other.description);
+        }
     }
+
 
     @Override
     public String toString() {
