@@ -17,26 +17,26 @@ import java.time.LocalDate;
  * Implements {@link Serializable} so tasks can be serialized and stored.
  */
 public class Task implements Comparable<Task>, Serializable {
-    
+
 
     /** Short text describing the task. */
-    public String description;
+    private final String description;
 
     /** Unique identifier for the task. */
-    public int id;
+    private final int id;
 
     /** The name of the user who has taken responsibility for the task (optional). */
-    public String takenBy;
+    private String takenBy;
 
     /** Current state of the task (TO_DO, IN_PROGRESS, DONE). */
-    public TaskState state;
+    private TaskState state;
 
     /** The date when the task was last updated. */
-    public LocalDate lastUpdate;
+    private LocalDate lastUpdate;
 
     /** The priority of the task (LOW, MEDIUM, HIGH). */
-    public TaskPrio prio;
->>>>>>> 17f4687cc0a4f8e57f1822247b2458aaa6d1ab23
+    private TaskPrio prio;
+
 
 
     /**

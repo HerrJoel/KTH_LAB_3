@@ -6,6 +6,7 @@ import jbl.delB.model.ProjectsManager;
 import jbl.delB.ui.MainUI;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 public class ProjectApp {
@@ -30,7 +31,7 @@ public class ProjectApp {
             MainUI ui = new MainUI(projectsManager);
             ui.mainLoop();
 
-        } catch (FileNotFoundException | ClassNotFoundException e) {
+        } catch (ClassNotFoundException | IOException e) {
             System.out.println("Could not load projects from file, please check the data file.");
             System.out.println("Continuing with empty manager.");
         }

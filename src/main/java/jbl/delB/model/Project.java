@@ -28,12 +28,12 @@ import java.util.List;
  * @version 1.0
  */
 public class Project implements Comparable<Project>, Serializable {
-    private String title;
-    private int id;
-    private String description;
-    private LocalDate createdDate;
+    private final String title;
+    private final int id;
+    private final String description;
+    private final LocalDate createdDate;
     private int nextTaskId;
-    private List<Task> tasks = new ArrayList<>();
+    private final List<Task> tasks = new ArrayList<>();
 
 
     /**
@@ -94,7 +94,7 @@ public class Project implements Comparable<Project>, Serializable {
     }
 
 
-    /** Adds task to project by recieving argument of description and title. Adding
+    /** Adds task to project by receiving argument of description and title. Adding
      *  private class variable nextTaskId.
      * @param desc description of new task
      * @param pr priority of new task
