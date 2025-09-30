@@ -11,8 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-// Comparable<Project> gör det möjligt att jämföra projekt med andra projekt (sortera titel i compareTo)
-// Serializable gör möjligt att läsa textfiler till projekt
+
 
 
 /**
