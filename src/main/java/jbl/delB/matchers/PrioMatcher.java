@@ -9,7 +9,6 @@ public class PrioMatcher implements ITaskMatcher {
 
     /**
      * Creates a new matcher for the given priority.
-     *
      * @param prio the priority to match against
      */
     public PrioMatcher(TaskPrio prio) {
@@ -18,10 +17,9 @@ public class PrioMatcher implements ITaskMatcher {
 
     /**
      * Checks if the task has the same priority as this matcher.
-     *
      * @param task the task to check
-     * @return {@code true} if the task's priority equals the matcher's priority,
-     * {@code false} otherwise
+     * @return {@code true} if the tasks priority equals the matchers priority
+     * else {@code false}
      */
     @Override
     public boolean match(Task task) {

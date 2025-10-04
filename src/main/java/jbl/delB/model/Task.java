@@ -79,7 +79,7 @@ public class Task implements Comparable<Task>, Serializable {
         return prio;
     }
 
-    /**Assigns the task to a user. Can only be done once.
+    /**Assigns the task to a user this can only be done one time.
      * @param takenBy the name of the user
      * @throws IllegalStateException if the task is already taken
      */
@@ -91,7 +91,7 @@ public class Task implements Comparable<Task>, Serializable {
         this.lastUpdate = LocalDate.now();
     }
 
-    /**Updates the state of the task and refreshes {@code lastUpdate}.
+    /**Updates the state of the task and update {@code lastUpdate}.
      * @param state the new state
      */
     public void setState(TaskState state) {
@@ -99,7 +99,7 @@ public class Task implements Comparable<Task>, Serializable {
         this.lastUpdate = LocalDate.now();
     }
 
-    /**Updates the priority of the task and refreshes {@code lastUpdate}.
+    /**Updates the priority of the task and updates {@code lastUpdate}.
      * @param prio the new priority
      */
     public void setPrio(TaskPrio prio) {
@@ -107,8 +107,8 @@ public class Task implements Comparable<Task>, Serializable {
         this.lastUpdate = LocalDate.now();
     }
 
-    /**Compares this task with another task.
-     * by priority first then by description alphabetically.
+    /**Compares this task with another
+     * by priority first then by description alphabeticaly.
      * @param other the other task to compare with
      * @return a negative 1, zero, or a positive 1
      */
@@ -125,10 +125,10 @@ public class Task implements Comparable<Task>, Serializable {
     }
 
     /**
-     * Checks if this task is equal to another object.
+     * Checks if this task is equal to another
      * Two tasks are considered equal if they have the same priority and description.
      * @param object the object to compare with
-     * @return true if the object is a Task with the same prio and description, false otherwise
+     * @return true if the object is a Task with the same prio and description, if not it returns false
      */
     @Override
     public boolean equals(Object object) {
