@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 /**
  * Represents a task in the project management system.
- * A task has a description, an ID, a priority, and a state.
+ * A task that has a description, ID, priority, and state.
  * It can optionally be taken by a user and keeps track of its last update date.
  *
  * Implements {@link Comparable} to allow sorting by priority first,
@@ -33,11 +33,9 @@ public class Task implements Comparable<Task>, Serializable {
 
 
 
-    /**
-     * Constructs a new Task with the given description, priority, and ID.
+    /**Constructs a new Task with the given description, priority, and ID.
      * The task is created with default state {@link TaskState#TO_DO} and
      * the lastUpdate set to the current date.
-     *
      * @param descr short description of the task
      * @param prio  initial priority
      * @param id    unique identifier
@@ -81,9 +79,7 @@ public class Task implements Comparable<Task>, Serializable {
         return prio;
     }
 
-    /**
-     * Assigns the task to a user. Can only be done once.
-     *
+    /**Assigns the task to a user. Can only be done once.
      * @param takenBy the name of the user
      * @throws IllegalStateException if the task is already taken
      */
@@ -95,9 +91,7 @@ public class Task implements Comparable<Task>, Serializable {
         this.lastUpdate = LocalDate.now();
     }
 
-    /**
-     * Updates the state of the task and refreshes {@code lastUpdate}.
-     *
+    /**Updates the state of the task and refreshes {@code lastUpdate}.
      * @param state the new state
      */
     public void setState(TaskState state) {
@@ -105,9 +99,7 @@ public class Task implements Comparable<Task>, Serializable {
         this.lastUpdate = LocalDate.now();
     }
 
-    /**
-     * Updates the priority of the task and refreshes {@code lastUpdate}.
-     *
+    /**Updates the priority of the task and refreshes {@code lastUpdate}.
      * @param prio the new priority
      */
     public void setPrio(TaskPrio prio) {
@@ -115,13 +107,10 @@ public class Task implements Comparable<Task>, Serializable {
         this.lastUpdate = LocalDate.now();
     }
 
-    /**
-     * Compares this task with another task.
-     * Tasks are ordered by priority first, then by description alphabetically.
-     *
+    /**Compares this task with another task.
+     * by priority first then by description alphabetically.
      * @param other the other task to compare with
-     * @return a negative integer, zero, or a positive integer as this task
-     *         is less than, equal to, or greater than the specified task
+     * @return a negative 1, zero, or a positive 1
      */
     @Override
     public int compareTo(Task other) {
@@ -138,7 +127,6 @@ public class Task implements Comparable<Task>, Serializable {
     /**
      * Checks if this task is equal to another object.
      * Two tasks are considered equal if they have the same priority and description.
-     *
      * @param object the object to compare with
      * @return true if the object is a Task with the same prio and description, false otherwise
      */
@@ -146,10 +134,8 @@ public class Task implements Comparable<Task>, Serializable {
     public boolean equals(Object object) {
         if (this == object) {
             return true;
-        }
-        if (!(object instanceof Task other)) {
-            return false;
-        }
+        }if (!(object instanceof Task other)) {
+            return false;}
         return this.prio == other.prio &&
                 this.description.equals(other.description);
     }
