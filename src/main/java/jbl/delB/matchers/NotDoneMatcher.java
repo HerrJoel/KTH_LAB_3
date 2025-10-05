@@ -6,9 +6,10 @@ import jbl.delB.model.Task;
 public class NotDoneMatcher implements ITaskMatcher {
 
     /**
-     * Checks if the given task is not done.
+     * Checks if the given task is not done
      * @param task the task to check
-     * @return {@code true} if the task's state is not DONE, {@code false} otherwise
+     * @return {@code true} if the task's state is not DONE
+     * else {@code false}
      */
     @Override
    public boolean match(Task task){

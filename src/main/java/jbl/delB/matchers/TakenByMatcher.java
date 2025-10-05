@@ -13,8 +13,8 @@ public class TakenByMatcher implements ITaskMatcher {
 
      /** Checks if the task is taken by the user
      * @param task the task to check
-     * @return {@code true} if the task is taken by the user,
-     *         {@code false} otherwise
+     * @return {@code true} if the task is taken by the user
+     * else {@code false}
      */
     @Override
     public boolean match(Task task){
