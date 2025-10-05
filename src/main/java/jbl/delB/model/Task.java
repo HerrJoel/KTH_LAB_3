@@ -10,10 +10,8 @@ import java.time.LocalDate;
  * Represents a task in the project management system.
  * A task that has a description, ID, priority, and state.
  * It can optionally be taken by a user and keeps track of its last update date.
-
  * Implements {@link Comparable} to allow sorting by priority first,
  * and description alphabetically when priorities are equal.
-
  * Implements {@link Serializable} so tasks can be serialized and stored.
  */
 public class Task implements Comparable<Task>, Serializable {
@@ -59,7 +57,7 @@ public class Task implements Comparable<Task>, Serializable {
         return id;
     }
 
-    /** @return the user who has taken this task, or null if none */
+    /** @return the user who has taken this task or null if no one has it */
     public String getTakenBy() {
         return takenBy;
     }
@@ -135,7 +133,7 @@ public class Task implements Comparable<Task>, Serializable {
     public boolean equals(Object object) {
         if (this == object) {
             return true;
-        }if (!(object instanceof Task other)) {
+        } if (!(object instanceof Task other)) {
             return false;}
         return this.prio == other.prio &&
                 this.description.equals(other.description);
@@ -143,7 +141,7 @@ public class Task implements Comparable<Task>, Serializable {
 
     /**
      * Returns a string with all the task including all of its fields.
-     * @return a string with task deteils
+     * @return a string with task detaails
      */
     @Override
     public String toString() {
