@@ -11,7 +11,7 @@ import jbl.delB.exceptions.TitleNotUniqueException;
  * and storing them in a list.
  *
  * @author Joel B. Lagerqvist
- * @version 1.0
+ *
  */
 
 
@@ -78,8 +78,6 @@ public boolean isTitleUnique(String title){
         }
 
     return true;
-
-
 }
     /**
      Clears all existing projects within list.
@@ -149,7 +147,6 @@ public List<Project> findProjects(String titleStr){
                 finds.add(p);
             }
         }
-
         return finds;
 }
 

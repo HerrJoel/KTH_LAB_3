@@ -81,7 +81,7 @@ public class App extends Application {
         world = new World(canvas.getWidth(), canvas.getHeight());
         for (Shape s : world.getShapes()) {
             if (s instanceof FillableShape) {
-                ((FillableShape) s).setFilled(false); // gör alla konturer
+                ((FillableShape) s).setFilled(true); // gör alla konturer
             }
         }
 

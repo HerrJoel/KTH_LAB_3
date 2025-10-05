@@ -38,7 +38,7 @@ public class Circle extends FillableShape {
 
 
 
-    //javaFX anger position övre vänstra hörnet
+
     @Override
     protected void constrain(double minX, double minY, double maxX, double maxY) {
         double x  = getX();
@@ -46,22 +46,22 @@ public class Circle extends FillableShape {
         double dx = getDx();
         double dy = getDy();
 
-        if (x < minX) {//vänster
+        if (x < minX) {
             x = minX;
             dx = Math.abs(dx);
         }
 
-        else if (x + diameter > maxX) {//höger
+        else if (x + diameter > maxX) {
             x = maxX - diameter;
             dx = -Math.abs(dx);
         }
 
-        if (y < minY) {//topp
+        if (y < minY) {
             y = minY;
             dy = Math.abs(dy);
         }
         else if (y + diameter > maxY) {
-            y = maxY - diameter;   // Bottt
+            y = maxY - diameter;
             dy = -Math.abs(dy);
         }
 
