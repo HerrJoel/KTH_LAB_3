@@ -108,7 +108,7 @@ public class Task implements Comparable<Task>, Serializable {
     }
 
     /**Compares this task with another
-     * by priority first then by description alphabeticaly.
+     * by priority first then by description alpabeticaly.
      * @param other the other task to compare with
      * @return a negative 1, zero, or a positive 1
      */
@@ -141,9 +141,8 @@ public class Task implements Comparable<Task>, Serializable {
     }
 
     /**
-     * Returns a string representation of the task including all its fields.
-     *
-     * @return a string with task details
+     * Returns a string with all the task including all of its fields.
+     * @return a string with task deteils
      */
     @Override
     public String toString() {
