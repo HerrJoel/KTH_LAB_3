@@ -11,20 +11,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
-
-
 /**
  * Represents a project that contains tasks.
  *
  * A project has a title, id, description and a creation date.
  * Tasks can be added, removed and searched using design strategy with matchers.
  *
- * Implements {@link Comparable} to allow sorting by project title  through compareTo and equals,
+ * Implements {@link Comparable} to allow sorting by project title through compareTo and equals,
  * and {@link Serializable} to allow saving/loading from file.
  *
  * @author Joel B. Lagerqvist
- * @version 1.0
+ *
  */
 public class Project implements Comparable<Project>, Serializable {
     private final String title;
@@ -43,7 +40,7 @@ public class Project implements Comparable<Project>, Serializable {
      * @param id the project id
      * @param description description of the project
      */
-    // package-private (kan användas av alla klasser i samma paket (model) inte utanför)
+
     Project(String title, int id, String description) {
         this.title = title;
         this.id = id;
@@ -51,8 +48,6 @@ public class Project implements Comparable<Project>, Serializable {
         this.createdDate = LocalDate.now();
         this.nextTaskId = 1;
     }
-
-
 
 
 /** Gets the project title
@@ -99,7 +94,7 @@ public class Project implements Comparable<Project>, Serializable {
      * @param pr priority of new task
      * @return new task
      * */
-    // Skapar Task utifrån konstruktor inuti Task
+
     public Task addTask(String desc, TaskPrio pr) {
         Task createTask = new Task(desc, pr, nextTaskId);
         tasks.add(createTask);
@@ -114,14 +109,14 @@ public class Project implements Comparable<Project>, Serializable {
      * @return created task if no task exists within project
      *         latest update of tasks within project
      * */
-    // Undersöker när senaste LocalDate som ett projekt har redigerats
+
     public LocalDate getLastUpdated(){
         if (tasks.isEmpty()) {
             return createdDate;
         }
         LocalDate lastDate = createdDate;
         for(Task t : tasks){
-            if(t.getLastUpdate().isAfter(lastDate)){ //isAfter jämför 2 LocalDate, om task.getLastUpdated() (som finns i Task.java) är ett senare datum än lastDate --> return true.
+            if(t.getLastUpdate().isAfter(lastDate)){
                 lastDate = t.getLastUpdate();
             }
         }
@@ -134,7 +129,7 @@ public class Project implements Comparable<Project>, Serializable {
      *         task owener of given id
      * */
 
-    // Skickar in Id och tittar igenom samtliga tasks för att hitta matchande Id
+
     public Task getTaskById(int idFinder) {
         for(Task s : tasks){
             if(s.getId() == idFinder){
@@ -171,8 +166,6 @@ public class Project implements Comparable<Project>, Serializable {
     }
 
 
-
-
     /**
      * Compares this project to another by title in alphabetic order.
      *
@@ -181,12 +174,10 @@ public class Project implements Comparable<Project>, Serializable {
      *         zero if equal,
      *         or a positive number if after
      */
-// KRÄVS AV Comparable<Project>
-    // Sorterar enligt titel alfabetisk ordning
-    //
+
     @Override
     public int compareTo(Project other) {
-        return this.title.compareTo(other.title); // jämför titlarna, om lika --> return 0, om this.title kommer för alfabetiskt --> return < 0, annars return > 0
+        return this.title.compareTo(other.title);
     }
 
 
@@ -198,33 +189,16 @@ public class Project implements Comparable<Project>, Serializable {
      * @return true if the titles are the same or reference points at same place in the memory
      *         false if it's not an object of probject or the titles don't match
      */
-    // Är titlarna lika?
-    //Används i projectManager isTitleUnique
+
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true; // Jämför referenserna (namnen på objekten) om de pekar på samma minne. this representerar objektet som vi skickar anroppet med, o repreenterar det vi skickar med i anroppet) --> this.(o)
-        if(!(o instanceof Project)) return false; // Om o inte är ett Project objekt --> return false
-        Project oth = (Project) o; // garanterar att o är ett Project objekt och kopierar över det till other
+        if (this == o) return true;
+        if(!(o instanceof Project)) return false;
+        Project oth = (Project) o;
 
-        return this.title.equals(oth.title); // jämför titlarna, om lika--> return true
+        return this.title.equals(oth.title);
 
     }
-
-
-
-    @Override
-    public String toString() {
-        return "Project{" +
-                "title='" + title + '\'' +
-                ", id=" + id +
-                ", description='" + description + '\'' +
-                ", createdDate=" + createdDate +
-                ", nextTaskId=" + nextTaskId +
-                ", tasks=" + tasks +
-                '}';
-    }
-
-
 
 
     /**
@@ -247,7 +221,6 @@ public class Project implements Comparable<Project>, Serializable {
      * @param matcher the matcher object used to filter tasks
      * @return a sorted list of matching tasks
      */
-// Fyller Listan matchFinder med de Tasks som matchas i projekt som undersöks utifrån ITaskMatcher.
     public List<Task> findTasks(ITaskMatcher matcher){
         List<Task> matchFinder = new ArrayList<>();
         for (Task m : tasks) {
@@ -257,12 +230,21 @@ public class Project implements Comparable<Project>, Serializable {
             }
         }
 
-        matchFinder.sort(null); //Sorterar utifrån compareTo inuti Task.  1st prio --> 2nd descript
+        matchFinder.sort(null);
 
         return matchFinder;
 
     }
 
+
+    @Override
+    public String toString() {
+        return "Project nr " + id + "\n" +
+                "title:" + title + "\n" +
+                "description:" + description + "\n" +
+                "createdDate:" + createdDate + "\n" +
+                "tasks:" + tasks + "\n";
+    }
 
 
 }

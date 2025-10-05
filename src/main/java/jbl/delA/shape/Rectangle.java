@@ -6,15 +6,14 @@ import javafx.scene.paint.Color;
 
 
 public  class Rectangle extends FillableShape{
-    public double width;
-    public double height;
+    private double width;
+    private double height;
 
 
     public Rectangle(double x, double y, double width, double height, Color color, boolean filled) {
         super(x, y, color, filled);
         this.width=width;
         this.height=height;
-        setColor(color);
     }
 
     public double getHeight() {
@@ -32,7 +31,7 @@ public  class Rectangle extends FillableShape{
     public void setHeight(double height) {
         this.height = height;
     }
-
+    @Override
   public void paint(GraphicsContext gc){
       if (isFilled()) {
           gc.setFill(getColor());
@@ -48,22 +47,22 @@ public  class Rectangle extends FillableShape{
         double y = getY();
         double dx = getDx();
         double dy = getDy();
-        // Höger
+
         if (x + width > maxX) {
             x = maxX - width;
             dx = -dx;
         }
-        // Vänster
+
         if (x < minX) {
             x = minX;
             dx = -dx;
         }
-        // Bott
+
         if (y + height > maxY) {
             y = maxY - height;
             dy = -dy;
         }
-        // Topp
+
         if (y < minY) {
             y = minY;
             dy = -dy;
