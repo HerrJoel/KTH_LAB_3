@@ -10,10 +10,10 @@ import java.time.LocalDate;
  * Represents a task in the project management system.
  * A task that has a description, ID, priority, and state.
  * It can optionally be taken by a user and keeps track of its last update date.
- *
+
  * Implements {@link Comparable} to allow sorting by priority first,
  * and description alphabetically when priorities are equal.
- *
+
  * Implements {@link Serializable} so tasks can be serialized and stored.
  */
 public class Task implements Comparable<Task>, Serializable {
@@ -79,13 +79,14 @@ public class Task implements Comparable<Task>, Serializable {
         return prio;
     }
 
-    /**Assigns the task to a user this can only be done one time.
+    /**Asigns the task to a user
+     * this assigning can only be done once.
      * @param takenBy the name of the user
      * @throws IllegalStateException if the task is already taken
      */
     public void setTakenBy(String takenBy) {
         if (this.takenBy != null) {
-            throw new IllegalStateException("Task has been taken by: " + this.takenBy);
+            throw new IllegalStateException("this task is already taken by: " + this.takenBy);
         }
         this.takenBy = takenBy;
         this.lastUpdate = LocalDate.now();
