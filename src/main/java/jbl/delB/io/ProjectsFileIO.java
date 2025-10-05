@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class ProjectsFileIO {
 
-    // Privat konstruktor för att förhindra instansiering
+
     private ProjectsFileIO() {}
 
     /**
@@ -26,12 +26,12 @@ public class ProjectsFileIO {
             FileOutputStream fout = new FileOutputStream(file);
             oos = new ObjectOutputStream(fout);
 
-            // Skriv hela listan till filen
+           
             oos.writeObject(data);
 
         } finally {
             if (oos != null) {
-                oos.close(); // viktigt: stäng alltid strömmen
+                oos.close();
             }
         }
     }
@@ -47,12 +47,12 @@ public class ProjectsFileIO {
             FileInputStream fin = new FileInputStream(file);
             ois = new ObjectInputStream(fin);
 
-            // Läs tillbaka listan
+
             return (List<Project>) ois.readObject();
 
         } finally {
             if (ois != null) {
-                ois.close(); // stäng strömmen
+                ois.close();
             }
         }
     }

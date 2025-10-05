@@ -89,7 +89,7 @@ public void setProjects(List<Project> newList){
     projects.clear();
     projects.addAll(newList);
 
-    //anpassar nextProjectId för nästa Project som ska läggas till (+1)
+
         nextProjectId = getHighestId() + 1;
 }
 
